@@ -1,0 +1,95 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --hr-pointer: #ff401b;
+  --mn-pointer: #8bc34a;
+  --sc-pointer: #ffc107;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(/img/background.jpg);
+}
+.clock {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(transparent, rgba(255, 255, 255, 0.2)),
+    url(/img/clock.png);
+  background-size: cover;
+  border-radius: 50%;
+  box-shadow: 1px 1px 2px #2229, -1px -1px 2px #fff9;
+}
+
+.clock::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 106%;
+  height: 106%;
+  backdrop-filter: blur(25px);
+  z-index: -1;
+  border-radius: 50%;
+  border: rgba(255, 255, 255, 0.2);
+}
+
+.pointer {
+  position: absolute;
+  height: 70px;
+  width: 4px;
+  top: 50%;
+  left: 50%;
+  background-color: var(--hr-pointer);
+  transform: translate(-50%, -100%);
+  border-radius: 5px;
+  transform-origin: bottom;
+}
+#hr {
+  width: 6px;
+  height: 60px;
+  background-color: var(--hr-pointer);
+}
+
+#mn {
+  width: 4px;
+  height: 80px;
+  background-color: var(--mn-pointer);
+  z-index: 1;
+}
+
+#sc {
+  border-radius: 0;
+  background-color: var(--sc-pointer);
+  z-index: 2;
+  height: 85px;
+  width: 3px;
+}
+
+#sc::before,
+#sc::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  width: 8px;
+  height: 8px;
+  background-color: indianred;
+  border-radius: 50%;
+}
+#sc::after {
+  transform: translate(-50%, 50%);
+  width: 2px;
+  height: 15px;
+}

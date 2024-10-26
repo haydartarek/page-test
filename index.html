@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Css File -->
+    <link rel="stylesheet" href="/css/clock.css" />
+    <title>Clock | Project</title>
+  </head>
+  <body>
+    <!-- Start Html -->
+    <div class="clock">
+      <div class="pointer" id="hr"></div>
+      <div class="pointer" id="mn"></div>
+      <div class="pointer" id="sc"></div>
+    </div>
+    <!-- start Js File  -->
+    <script>
+      const deg = 360 / 60;
+      setInterval(() => {
+        let time = new Date();
+        let ss = time.getSeconds() * deg;
+        let ms = time.getMinutes() * deg;
+        let hs = time.getHours() * deg * 5;
+        sc.style.transform = `translate(-50%, -100%) rotateZ(${ss}deg)`;
+        mn.style.transform = `translate(-50%, -100%) rotateZ(${ms}deg)`;
+        hr.style.transform = `translate(-50%, -100%) rotateZ(${
+          hs + ms / 12
+        }deg)`;
+      });
+    </script>
+  </body>
+</html>
